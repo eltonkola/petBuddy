@@ -105,5 +105,5 @@ dependencies {
     implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version'"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 }
