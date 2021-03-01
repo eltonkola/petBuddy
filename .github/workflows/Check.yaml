@@ -26,9 +26,8 @@ jobs:
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: printf '%s\n%s\n' "CLIENT_ID=$CLIENT_ID" "CLIENT_SECRET=$CLIENT_SECRET" >> ./local.properties
       - name: Build project
-        run: ./gradlew spotlessCheck assembleDebug lintDebug --stacktrace
+        run: ./gradlew -PCLIENT_ID=$CLIENT_ID -PCLIENT_SECRET=$CLIENT_SECRET spotlessCheck assembleDebug lintDebug --stacktrace
 
       - name: Upload build outputs (APKs)
         uses: actions/upload-artifact@v2
