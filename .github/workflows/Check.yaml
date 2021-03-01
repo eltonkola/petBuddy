@@ -22,11 +22,10 @@ jobs:
         with:
           java-version: 11
 
-      - name: Decode BASEURL
+      - name: Build project
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-      - name: Build project
         run: ./gradlew -Pclient_id=$CLIENT_ID -Pclient_secret=$CLIENT_SECRET spotlessCheck assembleDebug lintDebug --stacktrace
 
       - name: Upload build outputs (APKs)
