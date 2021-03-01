@@ -24,11 +24,9 @@ jobs:
 
       - name: Decode BASEURL
         env:
-          CLIENT_ID: \${{ secrets.CLIENT_ID }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: |
-          echo CLIENT_ID=\"$CLIENT_ID\" > ./local.properties
-          echo CLIENT_SECRET=\"$CLIENT_SECRET\" > ./local.properties
+        run: printf '%s\n%s\n' 'CLIENT_ID=$CLIENT_ID' 'CLIENT_SECRET=$CLIENT_SECRET' >> ./local.properties
       - name: Build project
         run: ./gradlew spotlessCheck assembleDebug lintDebug --stacktrace
 
