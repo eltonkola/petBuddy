@@ -27,7 +27,7 @@ jobs:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
       - name: Build project
-        run: ./gradlew -PCLIENT_ID=$CLIENT_ID -PCLIENT_SECRET=$CLIENT_SECRET spotlessCheck assembleDebug lintDebug --stacktrace
+        run: ./gradlew -Pclient_id=$CLIENT_ID -Pclient_secret=$CLIENT_SECRET spotlessCheck assembleDebug lintDebug --stacktrace
 
       - name: Upload build outputs (APKs)
         uses: actions/upload-artifact@v2
